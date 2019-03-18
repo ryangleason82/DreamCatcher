@@ -5,21 +5,25 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"server": "nodemon script.js"
+		"server": "nodemon script.js",
+		"client-install": "npm install --prefix client",
+		"client": "npm start --prefix client",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ryangleason82/RyeInn.git"
+		"url": "git+https://github.com/ryangleason82/DreamCatcher.git"
 	},
 	"author": "Ryan Gleason",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/ryangleason82/RyeInn/issues"
+		"url": "https://github.com/ryangleason82/DreamCatcher/issues"
 	},
-	"homepage": "https://github.com/ryangleason82/RyeInn#readme",
+	"homepage": "https://github.com/ryangleason82/DreamCatcher#readme",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
 		"body-parser": "^1.18.3",
+		"concurrently": "^4.1.0",
 		"express": "^4.16.4",
 		"gravatar": "^1.8.0",
 		"jsonwebtoken": "^8.5.0",
