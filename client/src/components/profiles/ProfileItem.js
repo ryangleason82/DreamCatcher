@@ -19,7 +19,7 @@ import ShareIcon from "@material-ui/icons/Share";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import red from "@material-ui/core/colors/red";
+import grey from "@material-ui/core/colors/grey";
 import { withStyles } from "@material-ui/core/styles";
 import MenuItem from "@material-ui/core/MenuItem";
 
@@ -47,7 +47,7 @@ const styles = theme => ({
 		transform: "rotate(180deg)"
 	},
 	avatar: {
-		backgroundColor: red[500]
+		backgroundColor: grey[400]
 	}
 });
 
@@ -143,7 +143,7 @@ class ProfileItem extends Component {
 
 ProfileItem.propTypes = {
 	profile: PropTypes.object.isRequired,
-	user: PropTypes.object.isRequired,
+
 	classes: PropTypes.object.isRequired
 };
 
