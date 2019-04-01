@@ -4,7 +4,16 @@ import PropTypes from "prop-types";
 import Spinner from "../common/Spinner";
 import { getProfiles } from "../../actions/profileActions";
 import ProfileItem from "./ProfileItem";
-import { GridList, GridListTile } from "@material-ui/core";
+import { GridList, GridListTile, withStyles } from "@material-ui/core";
+
+const styles = theme => ({
+	root: {
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+		overflow: "hidden"
+	}
+});
 
 class Profiles extends Component {
 	componentDidMount() {
@@ -13,6 +22,7 @@ class Profiles extends Component {
 
 	render() {
 		const { profiles, loading } = this.props.profile;
+		const { classes } = this.props;
 		let profileItems;
 
 		if (profiles === null || loading) {
@@ -21,7 +31,7 @@ class Profiles extends Component {
 			if (profiles.length > 0) {
 				profileItems = profiles.map(profile => {
 					return (
-						<GridListTile key={profile._id}>
+						<GridListTile key={profile._id} cols={profile.cols || 1}>
 							<ProfileItem key={profile._id} profile={profile} />
 						</GridListTile>
 					);
@@ -49,7 +59,8 @@ class Profiles extends Component {
 
 Profiles.propTypes = {
 	getProfiles: PropTypes.func.isRequired,
-	profile: PropTypes.object.isRequired
+	profile: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -58,5 +69,10 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
+
 	{ getProfiles }
 )(Profiles);
+
+// withStyles(styles),
+// <div className={classes.root}>
+// </div>

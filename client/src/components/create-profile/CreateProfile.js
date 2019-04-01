@@ -94,12 +94,12 @@ class CreateProfile extends Component {
 			},
 			{
 				label: "I am a dreamer with crazy dreams that need interpreting",
-				value: "I am a dreamer with crazy dreams that need interpreting"
+				value: "Dreamer"
 			},
 			{
 				label:
 					"I am a psychologist who can help people understand their dreams",
-				value: "I am a psychologist who can help people understand their dreams"
+				value: "Psychologist"
 			}
 		];
 

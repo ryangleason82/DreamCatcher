@@ -44,7 +44,7 @@ router.post("/register", (req, res) => {
 				name: req.body.name,
 				username: req.body.username,
 				email: req.body.email,
-				avatar,
+				avatar: req.body.avatar,
 				password: req.body.password
 			});
 
@@ -124,7 +124,8 @@ router.get(
 		res.json({
 			id: req.user.id,
 			username: req.user.username,
-			email: req.user.email
+			email: req.user.email,
+			avatar: req.user.avatar
 		});
 	}
 );

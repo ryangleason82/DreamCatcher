@@ -99,8 +99,10 @@ class ProfileItem extends Component {
 							</Menu>
 						</div>
 					}
-					title={profile.user.name}
-					subheader="Professional Psychologist"
+					title={
+						<Link to={`/profile/${profile.handle}`}>{profile.user.name}</Link>
+					}
+					subheader={profile.status}
 				/>
 				<CardMedia
 					className={classes.media}

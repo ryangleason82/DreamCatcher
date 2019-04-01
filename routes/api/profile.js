@@ -108,6 +108,7 @@ router.post(
 		const profileFields = {};
 		profileFields.user = req.user.id;
 		if (req.body.handle) profileFields.handle = req.body.handle;
+		if (req.body.handle) profileFields.avatar = req.body.avatar;
 		if (req.body.bio) profileFields.bio = req.body.bio;
 		if (req.body.status) profileFields.status = req.body.status;
 		if (req.body.fitbitusername)

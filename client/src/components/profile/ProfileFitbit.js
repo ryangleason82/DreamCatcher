@@ -4,7 +4,7 @@ class ProfileFitbit extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Profile About</h1>
+				<h1>Profile Fitbit information</h1>
 			</div>
 		);
 	}

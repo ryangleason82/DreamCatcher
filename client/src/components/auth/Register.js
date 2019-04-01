@@ -15,6 +15,7 @@ class Register extends Component {
 			email: "",
 			password: "",
 			password2: "",
+			avatar: "",
 			errors: {}
 		};
 		this.onChange = this.onChange.bind(this);
@@ -44,7 +45,8 @@ class Register extends Component {
 			username: this.state.username,
 			email: this.state.email,
 			password: this.state.password,
-			password2: this.state.password2
+			password2: this.state.password2,
+			avatar: this.state.avatar
 		};
 
 		this.props.registerUser(newUser, this.props.history);

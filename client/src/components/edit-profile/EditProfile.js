@@ -8,6 +8,7 @@ import InputGroup from "../common/InputGroup";
 import SelectListGroup from "../common/SelectListGroup";
 import { createProfile, getCurrentProfile } from "../../actions/profileActions";
 import isEmpty from "../../validation/is-empty";
+import ImageUploader from "react-images-upload";
 
 class EditProfile extends Component {
 	constructor(props) {
@@ -17,6 +18,7 @@ class EditProfile extends Component {
 			handle: "",
 			status: "",
 			bio: "",
+			avatar: "",
 			fitbitusername: "",
 			twitter: "",
 			facebook: "",
@@ -35,11 +37,15 @@ class EditProfile extends Component {
 		if (nextProps.errors) {
 			this.setState({ errors: nextProps.errors });
 		}
+
 		if (nextProps.profile.profile) {
 			const profile = nextProps.profile.profile;
 
 			// If profile field doesn't exist, make empty string
 			profile.bio = !isEmpty(profile.bio) ? profile.bio : "";
+			profile.user.avatar = !isEmpty(profile.user.avatar)
+				? profile.user.avatar
+				: "";
 			profile.fitbitusername = !isEmpty(profile.fitbitusername)
 				? profile.fitbitusername
 				: "";
@@ -57,6 +63,7 @@ class EditProfile extends Component {
 			// Set component fields state
 			this.setState({
 				handle: profile.handle,
+				avatar: profile.user.avatar,
 				status: profile.status,
 				bio: profile.bio,
 				fitbitusername: profile.fitbitusername,
@@ -67,12 +74,17 @@ class EditProfile extends Component {
 		}
 	}
 
+	onDrop = avatar => {
+		this.setState({ avatar: this.state.avatar.concat(avatar) });
+	};
+
 	onSubmit = e => {
 		e.preventDefault();
 		const profileData = {
 			handle: this.state.handle,
 			status: this.state.status,
 			bio: this.state.bio,
+			avatar: this.state.avatar,
 			fitbitusername: this.state.fitbitusername,
 			twitter: this.state.twitter,
 			facebook: this.state.facebook,
@@ -129,12 +141,12 @@ class EditProfile extends Component {
 			},
 			{
 				label: "I am a dreamer with crazy dreams that need interpreting",
-				value: "I am a dreamer with crazy dreams that need interpreting"
+				value: "Dreamer"
 			},
 			{
 				label:
 					"I am a psychologist who can help people understand their dreams",
-				value: "I am a psychologist who can help people understand their dreams"
+				value: "Psychologist"
 			}
 		];
 
@@ -155,6 +167,17 @@ class EditProfile extends Component {
 									error={errors.handle}
 									info="A unique handle for your profile URL"
 								/>
+								<ImageUploader
+									withIcon={true}
+									buttonText="Choose your avatar"
+									name={this.state.avatar}
+									singleImage={true}
+									onChange={this.onDrop}
+									imgExtension={[".jpg", "gif", ".png", ".gif"]}
+									maxFileSize={5242880}
+									withPreview={true}
+								/>
+
 								<SelectListGroup
 									placeholder="* Status"
 									name="status"
@@ -213,11 +236,13 @@ EditProfile.propTypes = {
 	createProfile: PropTypes.func.isRequired,
 	getCurrentProfile: PropTypes.func.isRequired,
 	profile: PropTypes.object.isRequired,
+
 	errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
 	profile: state.profile,
+
 	errors: state.errors
 });
 
