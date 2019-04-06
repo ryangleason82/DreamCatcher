@@ -43,6 +43,8 @@ if (process.env.NODE_ENV === "Dreamcatcher-env") {
 	});
 }
 
-const port = process.env.POR || 8081;
+const port = process.env.POR || 5000;
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
+
+//%PUBLIC_URL%/favcon.ico should be in public/index.html
