@@ -1,6 +1,6 @@
 /node_modules
 /package-lock.
-/config/keys_dev.js
+
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
