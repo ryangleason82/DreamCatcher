@@ -1,4 +1,4 @@
-# Dream Catcher
+# DreamCatcher
 ## Connect with the dreamer community
 Understand why you are the way you are by connecting with others. 
  - Post your dreams
