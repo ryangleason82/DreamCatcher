@@ -22,7 +22,7 @@ class Profiles extends Component {
 
 	render() {
 		const { profiles, loading } = this.props.profile;
-		//const { classes } = this.props;
+
 		let profileItems;
 
 		if (profiles === null || loading) {
@@ -49,7 +49,7 @@ class Profiles extends Component {
 					</p>
 				</h1>
 
-				<GridList cols={3} cellHeight="auto">
+				<GridList cols={3} cellHeight="auto" justify="center">
 					{profileItems}
 				</GridList>
 			</div>
